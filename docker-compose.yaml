@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_PASSWORD=toto
+    volumes:
+      - $PWD:/sql
+
+  adminer:
+    image: adminer:latest
+    ports:
+      - 8080:8080
+
+  back:
+    image: node:20.0.0-alpine
+    user: node
+    tty: true
+    stdin_open: true
+    working_dir: /home/node
+    entrypoint: sh -c
+    command: '"npm install && npm run dev"'
+    ports:
+      - 8000:8000
+    volumes:
+      - ./back:/home/node
