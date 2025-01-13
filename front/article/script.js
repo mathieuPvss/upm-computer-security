@@ -31,7 +31,7 @@ fetch(`http://localhost:8000/article?id=${articleId}`, requestOptions)
     });
 
 // fetch comments
-fetch("http://localhost:8000/comments?article_id=1", { method: "GET" })
+fetch(`http://localhost:8000/comments?article_id=${articleId}`, { method: "GET" })
     .then((response) => response.json())
     .then((comments) => {
         const commentsList = document.getElementById("comments-list");
