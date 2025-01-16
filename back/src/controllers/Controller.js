@@ -72,18 +72,27 @@ export class Controller {
   static async addCommentWithoutCleaning(request, response) {
     console.log(request.body);
     const { article_id, content } = request.body;
+
     if (!article_id || !content) {
       response.status(400).send('Missing parameters');
       return;
     }
+
     try {
-      await pool.query('INSERT INTO comments (article_id, content, comment_date) VALUES ($1, $2, $3)', [article_id, content, new Date()]);
+      const query = `
+        INSERT INTO comments (article_id, content, comment_date) 
+        VALUES (${article_id}, '${content}', '${new Date().toISOString()}')
+      `;
+      console.log('Query unclear:', query);
+      await pool.query(query);
+
       response.status(201).send('Comment added');
     } catch (err) {
       console.error(err);
       response.status(500).send('Database connection error');
     }
   }
+
 
   static async addCommentWithProtection(request, response) {
     const { article_id, content } = request.body;
@@ -97,10 +106,21 @@ export class Controller {
       const cleanedContent = Controller.cleanData(content);
       console.log('Cleaned Content:', cleanedContent);
 
-      await pool.query(
-        'INSERT INTO comments (article_id, content, comment_date) VALUES ($1, $2, $3)',
-        [article_id, cleanedContent, new Date()]
-      );
+      // await pool.query(
+      //   'INSERT INTO comments (article_id, content, comment_date) VALUES ($1, $2, $3)',
+      //   [article_id, cleanedContent, new Date()]
+      // );
+
+      const query = 'INSERT INTO comments (article_id, content, comment_date) VALUES ($1, $2, $3)';
+      const values = [article_id, cleanedContent, new Date()];
+      const loggedQuery = query
+        .replace('$1', `'${values[0]}'`)
+        .replace('$2', `'${values[1]}'`)
+        .replace('$3', `'${values[2].toISOString()}'`);
+
+      console.log('Generated Query:', loggedQuery);
+      await pool.query(query, values);
+
 
       response.status(201).send('Comment added');
     } catch (err) {
