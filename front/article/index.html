@@ -8,32 +8,50 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <main>
-        <h1 id="heading">Title article</h1>
-        <p id="date">Date</p>
-        <p id="newstype">Type</p>
-        <article id="content">Content...</article>
+<header>
+    <div class="logo">
+        <img src="../images/upm-logo.jpg" alt="UPM Logo">
+    </div>
+    <h1>Computer Security Blog</h1>
+</header>
+<main>
+    <article class="article-container">
+        <h1 id="heading">Title of the Article</h1>
+        <div class="meta">
+            <p id="date"><strong>Date:</strong> 2025-01-19</p>
+            <p id="newstype"><strong>Category:</strong> Technology</p>
+        </div>
+        <p id="content">
+            This is the content of the article. It’s clean, professional, and readable to enhance user experience.
+        </p>
+    </article>
 
-        <section id="comments-section">
-            <h2>Comments</h2>
-            <ul id="comments-list">                
-            </ul>
+    <section id="comments-section" class="comments-container">
+        <h2>Comments</h2>
+        <ul id="comments-list">
+            <!-- Comments will be added dynamically here -->
+        </ul>
 
-            <h3>Add comment</h3>
-            <form id="comment-form">
-                <textarea id="comment-content" placeholder="Your comment" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+        <h3>Add a Comment</h3>
+        <form id="comment-form" class="comment-form">
+            <textarea id="comment-content" placeholder="Write your comment here..." required></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
 
-            <label for="protection-switch">
+        <div class="protection-options">
+            <label>
                 <input type="checkbox" id="protection-switch-server" />
-                Use Server side protection
+                Server-Side Protection
             </label>
-            <label for="protection-switch">
+            <label>
                 <input type="checkbox" id="protection-switch-client" />
-                Use Client side protection
+                Client-Side Protection
             </label>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2025 Computer Security Blog - Created by BEKRI Eines, PANNETRAT Mathieu, ABDIMALIK Mohamed</p>
+</footer>
 </body>
 </html>

@@ -1,21 +1,67 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>MyBlogUPM</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="./script.js" defer></script>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyBlogUPM - Computer Security</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="container">
+        <img src="./images/upm-logo.jpg" alt="UPM Logo" id="logo">
+        <nav>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#articles"><i class="fas fa-newspaper"></i> Articles</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#footer"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home">
+    <div class="hero">
+        <h1>Welcome to MyBlogUPM</h1>
+        <p>A project for the <strong>Computer Security</strong> course</p>
+        <a href="#articles" class="cta">Discover Articles</a>
+    </div>
+</section>
+
+<!-- Articles Section -->
+<main id="articles">
+    <section>
+        <h2>Latest Articles</h2>
         <ul id="articles-list">
-
+            <!-- Articles will be dynamically injected -->
         </ul>
-        <div id="pagination">
+        <div id="pagination"></div>
+    </section>
+</main>
 
-        </div>        
-    </body>
-    <footer>
-        <p>MyBlogUPM</p>
-    </footer>
+<!-- About Section -->
+<section id="about">
+    <div class="about-container">
+        <h2>About Us</h2>
+        <p>This blog was created as part of the <strong>Computer Security</strong> course at UPM.</p>
+        <p>Our goal: share knowledge and explore fascinating topics related to cybersecurity.</p>
+        <ul>
+            <li>👨‍💻 <strong>BEKRI Eines</strong></li>
+            <li>👨‍💻 <strong>PANNETRAT Mathieu</strong></li>
+            <li>👨‍💻 <strong>ABDIMALIK Mohamed</strong></li>
+        </ul>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <p>&copy; 2025 MyBlogUPM. All rights reserved.</p>
+</footer>
+</body>
 </html>
