@@ -25,3 +25,10 @@ services:
       - 8000:8000
     volumes:
       - ./back:/home/node
+
+  front:
+    image: httpd:alpine
+    ports:
+      - 3000:80
+    volumes:
+      - ./front:/usr/local/apache2/htdocs
